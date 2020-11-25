@@ -24,7 +24,10 @@ public class Embauche {
      */
     public void terminer(LocalDate dateFin) {
          // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+        if (this.estTerminee()){
+            throw new UnsupportedOperationException("L'embauche est déjà terminé");
+        }
+        fin = dateFin;
     }
     
     /**

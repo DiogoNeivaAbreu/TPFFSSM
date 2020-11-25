@@ -27,12 +27,13 @@ public class Moniteur extends Plongeur {
      */
     public Optional<Club> employeurActuel() {
         // TODO: Implémenter cette méthode
+        Optional<Club> os = Optional.empty();
         Club result;
         if (myEmplois.isEmpty() || myEmplois.get(myEmplois.size()-1).estTerminee()) {
-            return Optional.empty();
+            return os;
         }
         result = myEmplois.get(myEmplois.size()-1).getEmployeur();
-        return Optional.ofNullable(result);
+        return os = Optional.ofNullable(result);
     }
 
     /**

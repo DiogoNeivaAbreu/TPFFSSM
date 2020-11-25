@@ -22,7 +22,7 @@ public class Embauche {
      * Termine cette embauche
      * @param dateFin la date à laquelle cette embauche est terminée
      */
-    public void terminer(LocalDate dateFin) {
+    public void terminer(LocalDate dateFin) throws Exception {
          // TODO: Implémenter cette méthode
         if (this.estTerminee()){
             throw new UnsupportedOperationException("L'embauche est déjà terminé");

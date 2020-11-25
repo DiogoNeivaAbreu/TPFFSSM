@@ -49,12 +49,11 @@ public class Plongee {
                 for (Plongeur p : listparticipants){
                     for (int i=0; i<p.myLicences.size(); i++){
                         if (p.myLicences.get(i).estValide(this.getDate())){
-                           break; 
+                           return true;
                         }
                     }
-                    return false;
                 }
-                return true;
+                return false;
 	}
 
 }

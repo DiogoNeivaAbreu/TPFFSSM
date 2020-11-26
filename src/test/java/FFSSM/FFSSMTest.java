@@ -58,7 +58,7 @@ public class FFSSMTest {
         // On crée un site pour qu'une plongée ait lieu 
         Site s = new Site("plonge", "pro");
         Plongee plo = new Plongee(s, m, LocalDate.now(), 10, 1);
-        // On ajoute un plogeur à la plongée
+        // On ajoute un plongeur à la plongée
         plo.ajouteParticipant(pl);
         // On vérifie si la plongée est conforme
         assertEquals(false, plo.estConforme());
@@ -68,9 +68,27 @@ public class FFSSMTest {
         assertEquals(true, plo.estConforme());
 
     }
-
+    
+    /**
+    * Test of plongeeNonConforme method, of class Club.
+    */
+    @Test
+    public void testPlongeeNonConforme() {
+        // On crée un site pour qu'une plongée ait lieu
+        Site s = new Site("plonge", "pro");
+        Plongee plo = new Plongee(s, m, LocalDate.now(), 10, 1);
+        // On ajoute un plongeur à la plongée sans licence
+        plo.ajouteParticipant(pl);
+        // On organise la plongée plo pour le club c
+        c.organisePlongee(plo);
+        // La plongee n'est pas conforme 
+        assertEquals(1, c.plongeesNonConformes().size());
+    }
+        
+        
     /**
      * Test of emplois method, of class Moniteur.
+     * Test of terminer method, of class Embauche.
      */
     @Test
     public void testEmploisTerminer() throws Exception{
@@ -95,5 +113,7 @@ public class FFSSMTest {
         // On vérifie que le moniteur ne possède que 2 embauches
         assertEquals(2, m.emplois().size());
     }
+    
+    
 
 }
